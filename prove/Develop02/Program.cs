@@ -10,6 +10,10 @@ class Program
         Journal userJournal = new Journal();
         bool keepRunning = true;
 
+        //Inform user of time since last run
+        string timeSinceLast = GetTimeSinceLast();
+        Console.WriteLine($"It has been {timeSinceLast} day(s) since you last used this journal program.");
+
         while (keepRunning == true)
         {
             //Initialize and prompt for input
@@ -107,6 +111,25 @@ class Program
         Random random = new Random();
         string prompt = prompts[random.Next(prompts.Length)];
         return prompt;
+    }
+
+    static string GetTimeSinceLast()
+    {
+        DateTime lastRunDay = DateTime.Parse(File.ReadAllText("last_run.txt"));
+        DateTime currentDay = DateTime.Today;
+        string sinceLastRun = currentDay.Subtract(lastRunDay).ToString();
+        try
+        {
+            int dotIndex = sinceLastRun.IndexOf(".");
+            sinceLastRun = sinceLastRun.Substring(0, dotIndex);
+        }
+        catch (ArgumentOutOfRangeException)
+        {
+            sinceLastRun = "0";
+        }
+        string currentDayString = currentDay.ToString();
+        File.WriteAllText("last_run.txt", currentDayString);
+        return sinceLastRun;
     }
 
 }
