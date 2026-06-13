@@ -1,6 +1,4 @@
 using System;
-// Forget comments, I don't have to defend myself to anyone.
-// If this seems like spaghetti code I blame "Funiculi, Funicula" which is what I was listening to as I wrote this
 class Program
 {
     static void Main(string[] args)
