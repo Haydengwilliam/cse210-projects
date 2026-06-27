@@ -17,7 +17,7 @@ class Journal
         _entries = new List<Entry>();
     }
 
-    public string ToString()
+    public override string ToString()
     {
         // Use this to display the journal
         string output = "";
