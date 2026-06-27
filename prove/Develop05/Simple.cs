@@ -21,7 +21,7 @@ public class Simple : Goal
         return base.ToString() + $":{_PointsPossible}";
     }
 
-    public void ImportGoal(string filepath, int goalIndex = 1) //Whatever twisted individual saw fit to impose a demand that this insignificant little program that we are just making for homework needs to have save/load functionality is the one responsible for bringing this inane nuiscence of code into the world, not me. (Also, I hope they do not delude themself into thinking that I ever plan to use this program once I submit it. I never want to see it again.)
+    public void ImportGoal(string filepath, int goalIndex = 1)
     {
         try
         {
